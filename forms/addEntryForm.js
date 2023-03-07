@@ -3,6 +3,7 @@ import renderToDOM from '../utils/renderToDom';
 
 const addEntryForm = (user, obj = {}) => {
   clearDom();
+  // console.warn(obj);
   const domString = `
   <form id="${obj.firebaseKey ? `update-entry--${obj.firebaseKey}` : 'submit-entry'}" class="mb-4">
     <div class="form-group">

@@ -42,9 +42,10 @@ body {
   margin-top: 100px;
   align-content: center;
 
-  #add-entry {
-    margin: 0 auto;
-    text-align: center;
+  #filter-button {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
   }
 
   #form-container {
@@ -70,6 +71,7 @@ body {
       width: 500px;
       height: 375px;
       margin: 5px;
+      background-color: rgb(236, 234, 234);
 
       .sale-badge {
         font-size: 1em;

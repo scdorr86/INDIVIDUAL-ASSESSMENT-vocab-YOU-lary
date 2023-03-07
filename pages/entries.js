@@ -10,7 +10,7 @@ const showEntries = (array) => {
   console.warn('showentry.then', array);
   clearDom();
 
-  const btnString = '<button class="btn btn-success btn-lg mb-4" id="js-btn">Javascript</button>';
+  const btnString = '<button class="btn btn-success btn-lg mb-4" id="js-btn">Javascript</button><button class="btn btn-success btn-lg mb-4" id="html-btn">HTML</button><button class="btn btn-success btn-lg mb-4" id="css-btn">CSS</button>';
   renderToDOM('#filter-button', btnString);
 
   let domString = '';

@@ -24,6 +24,23 @@ const formEvents = (user) => {
         });
       });
     }
+
+    // CLICK EVENT FOR EDITING ENTRY
+    if (e.target.id.includes('update-entry')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      console.warn('CLICKED UPDATE ENTRY', e.target.id);
+      console.warn(firebaseKey);
+      const payload = {
+        title: document.querySelector('#title').value,
+        description: document.querySelector('#description').value,
+        category: document.querySelector('#category').value,
+        uid: user.uid,
+        firebaseKey
+      };
+      updateEntry(payload).then(() => {
+        getEntries(user.uid).then(showEntries);
+      });
+    }
   });
 };
 
