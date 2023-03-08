@@ -74,10 +74,61 @@ const updateEntry = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// FILTER ENTRIES ON CATEGORY
+const filterJsEntries = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const jsEntries = Object.values(data).filter((item) => item.category.toLowerCase() === 'javascript');
+      resolve(jsEntries);
+    })
+    .catch(reject);
+});
+
+// FILTER ENTRIES ON CATEGORY
+const filterCssEntries = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const jsEntries = Object.values(data).filter((item) => item.category.toLowerCase() === 'css');
+      resolve(jsEntries);
+    })
+    .catch(reject);
+});
+
+// FILTER ENTRIES ON CATEGORY
+const filterHtmlEntries = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const jsEntries = Object.values(data).filter((item) => item.category.toLowerCase() === 'html');
+      resolve(jsEntries);
+    })
+    .catch(reject);
+});
+
 export {
   getEntries,
   getSingleEntry,
   deleteEntry,
   createEntry,
-  updateEntry
+  updateEntry,
+  filterJsEntries,
+  filterCssEntries,
+  filterHtmlEntries
 };

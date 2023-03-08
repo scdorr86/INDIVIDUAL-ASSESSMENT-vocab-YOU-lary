@@ -22,9 +22,10 @@ const showEntries = (array) => {
           <h5 class="card-title">Category: ${item.category}</h5>
             <p class="card-text bold">${item.description}</p>
             <hr>
-            <i id="edit-entry-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
-            <i id="delete-entry-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
+            <i id="edit-entry-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info entrybtn">Edit</i>
+            <i id="delete-entry-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt delbtn">Delete</i>
         </div>
+        <footer>Created/Edited:${item.timestamp}, User: ${item.uid}</footer>
       </div>`;
   });
   renderToDOM('#store', domString);

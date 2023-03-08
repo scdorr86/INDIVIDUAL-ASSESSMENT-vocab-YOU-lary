@@ -35,6 +35,27 @@ body {
   color: white;
 }
 
+#html-btn, #css-btn, #js-btn {
+  color: rgb(255, 255, 255);
+  background-color: #6c757d;
+  border-color: #495057;
+  font-family: "Oregano", cursive !important;
+}
+
+.entrybtn {
+  color: rgb(255, 255, 255);
+  background-color: #6c757d;
+  border-color: #495057;
+  font-family: "Oregano", cursive !important;
+}
+
+.delbtn {
+  color:rgb(255, 255, 255);
+  background-color: #6c757d;
+  border-color: #495057;
+  font-family: "Oregano", cursive !important;
+}
+
 #main-container {
   display: flex;
   flex-direction: column;
@@ -43,10 +64,11 @@ body {
   align-content: center;
 
   #filter-button {
+    text-align: center;
     display: flex;
-    justify-content: space-between;
-    margin: auto;
+    justify-content: space-around;
   }
+
 
   #form-container {
     width: 60%;

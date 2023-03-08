@@ -13,6 +13,7 @@ const formEvents = (user) => {
         description: document.querySelector('#description').value,
         category: document.querySelector('#category').value,
         uid: user.uid,
+        timestamp: new Date(Date.now()).toLocaleString()
       };
 
       createEntry(payload).then(({ name }) => {
@@ -35,6 +36,7 @@ const formEvents = (user) => {
         description: document.querySelector('#description').value,
         category: document.querySelector('#category').value,
         uid: user.uid,
+        timestamp: new Date(Date.now()),
         firebaseKey
       };
       updateEntry(payload).then(() => {

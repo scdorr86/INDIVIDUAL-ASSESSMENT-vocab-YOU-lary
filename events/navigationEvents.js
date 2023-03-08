@@ -16,6 +16,21 @@ const navigationEvents = (user) => {
     console.warn('all entry clicked', user.uid);
     getEntries(user.uid).then(showEntries);
   });
+
+  // SEARCH
+  document.querySelector('#search').addEventListener('keyup', (e) => {
+    const searchValue = document.querySelector('#search').value.toLowerCase();
+    console.warn(searchValue);
+
+    // WHEN THE USER PRESSES ENTER, MAKE THE API CALL AND CLEAR THE INPUT
+    if (e.keyCode === 13) {
+      // MAKE A CALL TO THE API TO FILTER ON THE BOOKS
+      getEntries(user.uid).then((data) => data.filter((item) => item.category.toLowerCase().includes(searchValue) || item.descrption.toLowerCase().includes(searchValue) || item.title.toLowerCase().includes(searchValue)));
+      // IF THE SEARCH DOESN'T RETURN ANYTHING, SHOW THE EMPTY STORE
+      // OTHERWISE SHOW THE STORE
+      document.querySelector('#search').value = '';
+    }
+  });
 };
 
 export default navigationEvents;

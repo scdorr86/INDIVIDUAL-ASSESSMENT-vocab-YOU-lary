@@ -1,4 +1,6 @@
-import { deleteEntry, getEntries, getSingleEntry } from '../api/entryData';
+import {
+  deleteEntry, filterCssEntries, filterHtmlEntries, filterJsEntries, getEntries, getSingleEntry
+} from '../api/entryData';
 import addEntryForm from '../forms/addEntryForm';
 import { showEntries } from '../pages/entries';
 
@@ -26,6 +28,19 @@ const domEvents = (user) => {
         getSingleEntry(firebaseKey).then((entryObj) => addEntryForm(user.uid, entryObj));
       }
     }
+
+    // Filter on Category
+    document.querySelector('#js-btn').addEventListener('click', () => {
+      filterJsEntries(user.uid).then(showEntries);
+    });
+
+    document.querySelector('#css-btn').addEventListener('click', () => {
+      filterCssEntries(user.uid).then(showEntries);
+    });
+
+    document.querySelector('#html-btn').addEventListener('click', () => {
+      filterHtmlEntries(user.uid).then(showEntries);
+    });
   });
 };
 
