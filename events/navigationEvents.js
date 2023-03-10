@@ -24,10 +24,12 @@ const navigationEvents = (user) => {
 
     // WHEN THE USER PRESSES ENTER, MAKE THE API CALL AND CLEAR THE INPUT
     if (e.keyCode === 13) {
-      // MAKE A CALL TO THE API TO FILTER ON THE BOOKS
-      getEntries(user.uid).then((data) => data.filter((item) => item.category.toLowerCase().includes(searchValue) || item.descrption.toLowerCase().includes(searchValue) || item.title.toLowerCase().includes(searchValue)));
-      // IF THE SEARCH DOESN'T RETURN ANYTHING, SHOW THE EMPTY STORE
-      // OTHERWISE SHOW THE STORE
+      // MAKE A CALL TO THE API TO FILTER ENTRIES
+      getEntries(user.uid).then((data) => data.filter((index) => index.title.toLowerCase().includes(searchValue)
+        || index.description.toLowerCase().includes(searchValue)
+        || index.category.toLowerCase().includes(searchValue))).then(showEntries);
+      // IF THE SEARCH DOESN'T RETURN ANYTHING, SHOW THE EMPTY DOM
+      // OTHERWISE SHOW THE ENTRIES
       document.querySelector('#search').value = '';
     }
   });

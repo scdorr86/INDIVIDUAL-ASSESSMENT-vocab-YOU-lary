@@ -25,7 +25,6 @@ const showEntries = (array) => {
             <i id="edit-entry-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info entrybtn">Edit</i>
             <i id="delete-entry-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt delbtn">Delete</i>
         </div>
-        <footer>Created/Edited:${item.timestamp}, User: ${item.uid}</footer>
       </div>`;
   });
   renderToDOM('#store', domString);
