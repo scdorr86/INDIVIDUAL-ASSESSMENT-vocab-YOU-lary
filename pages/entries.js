@@ -24,6 +24,7 @@ const showEntries = (array) => {
             <hr>
             <i id="edit-entry-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info entrybtn">Edit</i>
             <i id="delete-entry-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt delbtn">Delete</i>
+            <footer>Date Created: ${item.timestamp}</footer>
         </div>
       </div>`;
   });

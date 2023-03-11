@@ -30,17 +30,21 @@ const domEvents = (user) => {
     }
 
     // Filter on Category
-    document.querySelector('#js-btn').addEventListener('click', () => {
-      filterJsEntries(user.uid).then(showEntries);
-    });
-
-    document.querySelector('#css-btn').addEventListener('click', () => {
-      filterCssEntries(user.uid).then(showEntries);
-    });
-
-    document.querySelector('#html-btn').addEventListener('click', () => {
-      filterHtmlEntries(user.uid).then(showEntries);
-    });
+    if (e.target.id.includes('js-btn')) {
+      document.querySelector('#js-btn').addEventListener('click', () => {
+        filterJsEntries(user.uid).then(showEntries);
+      });
+    }
+    if (e.target.id.includes('css-btn')) {
+      document.querySelector('#css-btn').addEventListener('click', () => {
+        filterCssEntries(user.uid).then(showEntries);
+      });
+    }
+    if (e.target.id.includes('html-btn')) {
+      document.querySelector('#html-btn').addEventListener('click', () => {
+        filterHtmlEntries(user.uid).then(showEntries);
+      });
+    }
   });
 };
 
